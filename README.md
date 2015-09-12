@@ -7,11 +7,11 @@ Smart contract that locks your coins up for a predetermined time period. This so
 Launch geth and wait until it's all caught up with the rest of the network. In another window, run `geth attach` and follow the example below.
 
 ```
-> web3.eth.defaultAccount = web3.eth.accounts[1] // Choose whichever account you want here.
+> eth.defaultAccount = eth.accounts[1] // Choose whichever account you want here.
 "0x35d68fb24df0e54d44e6cc32f75f1cc891f57811" // It'll echo back the address you chose.
-> web3.eth.getBalance(web3.eth.defaultAccount, 'latest')
+> eth.getBalance(eth.defaultAccount, 'latest')
 5.000129328647354980468e+19
-> var expiration = web3.eth.getBlock('latest').timestamp + 600; // Expire in 10 minutes.
+> var expiration = eth.getBlock('latest').timestamp + 600; // Expire in 10 minutes.
 undefined
 > loadScript('coinlock.js')
 Everything looks in order.
@@ -38,14 +38,14 @@ Contract address is 0xc027...
 DO NOT LOSE THIS ADDRESS! // Or you'll lose access to your coins!
 Setting lock expiration to 2015-09-11 18:29:00
 Done. Run 'redeem.js' after the expiration to get your ether back.
-> web3.eth.sendTransaction({from: web3.eth.defaultAccount, to: "0xc027...", value: 1000000000000000000})
+> eth.sendTransaction({from: eth.defaultAccount, to: "0xc027...", value: 1000000000000000000})
 "0x..." // Loaded up 1 ether into lock contract.
 ```
 
 At this point you can try to redeem the lock. It won't send your coins until the latest block timestamp has passed the expiration timestamp you set earlier. When you finally redeem your coins, it should look something like the example below.
 
 ```
-> web3.eth.defaultAccount = web3.eth.accounts[1] // Has to be the account that created the lock.
+> eth.defaultAccount = eth.accounts[1] // Has to be the account that created the lock.
 "0x35d68fb24df0e54d44e6cc32f75f1cc891f57811"
 > var address="0xc027...";
 undefined
@@ -56,7 +56,7 @@ Unlock account 35d68fb24df0e54d44e6cc32f75f1cc891f57811
 Passphrase: 
 Redemption tx is 0x...
 true
-> web3.eth.getBalance(web3.eth.defaultAccount, 'latest')
+> eth.getBalance(eth.defaultAccount, 'latest')
 5.000127707697354980468e+19
 ```
 
