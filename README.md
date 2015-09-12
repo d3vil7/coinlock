@@ -1,6 +1,6 @@
-# coinlock
+# Coin Lock
 
-Smart contract that locks your coins up for a predetermined time period. This software is published as-is. It's worked in testing, but there are always unforseeable things that can go wrong in practice. By using it, you accept all responsibility for whatever happens to your ether.
+Smart contract that locks your coins up for a predetermined time period, expressed as the number of seconds since the Unix epoch (which is the same format as block timestamps). This software is published as-is. It's worked in testing, but there are always unforseeable things that can go wrong in practice. By using it, you accept all responsibility for whatever happens to your ether.
 
 ## Usage
 
