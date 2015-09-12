@@ -61,3 +61,16 @@ true
 ```
 
 Feel free to open an issue if you have any questions or concerns.
+
+## Notes
+
+If you don't trust binary blobs in Javascript files with your ether (and you shouldn't!), you can easily substitute your own compiled code by setting the `build` variable before running `coinlock.js` or `redeem.js`. Here is the command you want for solc 1.2:
+
+    solc --combined-json bin,abi coinlock.sol
+
+Copy the string it outputs into your geth console and then parse the ABI into something geth can work with:
+
+    > var build = {"contracts"...
+    > build.contracts.CoinLock.abi = JSON.parse(build.contracts.CoinLock.abi)
+
+And then continue on with the examples as written.
