@@ -4,7 +4,7 @@ Smart contract that locks your coins up for a predetermined time period, express
 
 ## Usage
 
-Launch geth and wait until it's all caught up with the rest of the network. In another window, run `geth attach` and follow the example below.
+Launch geth and wait until it's all caught up with the rest of the network. In another terminal, run `geth attach` and follow the example below.
 
 ```
 > eth.defaultAccount = eth.accounts[1] // Choose whichever account you want here.
@@ -13,7 +13,7 @@ Launch geth and wait until it's all caught up with the rest of the network. In a
 5.000129328647354980468e+19
 > var expiration = eth.getBlock('latest').timestamp + 600; // Expire in 10 minutes.
 undefined
-> loadScript('coinlock.js')
+> loadScript('coinlock.js') // Might have to supply a different path, but you get the idea.
 Everything looks in order.
 Creating a lock that expires 2015-09-11 18:29:00
 Unlock account 35d68fb24df0e54d44e6cc32f75f1cc891f57811
